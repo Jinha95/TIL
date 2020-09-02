@@ -154,5 +154,93 @@
             powerset(n, k+1)	# 다음 요소 포함 여부 결정
     ```
 
+
+
+
+* 단순하게 순열을 생성하는 방법
+
+  * {1, 2, 3}을 포함하는 모든 순열을 생성하는 함수
+    * 동일한 숫자가 포함되지 않았을 때, 각 자리 수 별로 loop을 이용해 아래와 같이 구현할 수 있다.
+
+  ```python
+  for i1 in range(1, 4):
+      for i2 in range(1, 4):
+          if i2 != i1:
+              for i3 in range(1, 4):
+                  if i3 != i1 and i3 != i2:
+                      print(i1, i2, i3)
+  ```
+
+
+
+* 재귀로 순열 생성 방법
+
+  * 재귀 호출을 통한 순열 생성
+
+  * ```python
+    # arr[] : 데이터가 저장된 배열
+    # swap(i, j) : arr[i] <--교환--> arr[j]
+    # n : 원소의 개수, k : 현재까지 교환된 원소의 개수
     
+    perm(n, k)
+    	IF k == n
+        	print array # 원하는 작업 수행
+        ELSE
+        	FOR i in k --> n-1
+            	swap(k, i);
+                perm(n, k+1);
+                swap(k, i);
+    ```
+
+
+
+
+
+
+```python
+# 재귀를 이용한 부분집합 구하기
+def subset(k):  # 현재 선택할지 말지 결정할 원소의 위치
+    # 재귀 : 종료조건을 설정해야함.
+    if k == N:
+        # 출력하고 끝
+        for i in range(N):
+            if bit[i] == 1:
+                print(arr[i], end=' ')
+        print()
+        return
+    # 현재 위치의 원소 선택 할지 말지 결정하고, 다음 원소로 넘어가서 했던일 반복(재귀).
+    bit[k] = 0
+    subset(k+1)
+    bit[k] = 1
+    subset(k+1)
+
+
+arr = [1, 2, 3] # 선택할 원소
+N = len(arr)    # 원소의 개수
+bit = [0]*N     # 원소 선택 여부 저장
+subset(0)       # 0번 원소에서 부터 선택할지 말지 결정하러 가기
+```
+
+
+
+```python
+# 순열 n개의 원소중에서 r개를 뽑아서 나열한 것
+
+def perm(k):
+    if k ==N:
+        print(sel)
+        return
+    for i in range(N):
+        if visited[i] == 0:
+            sel[k] = arr[i]
+            visited[i] = 1
+            perm(k+1)
+            visited[i] = 0
+
+arr = [1, 2, 3]
+N = len(arr)
+sel = [0] * N
+visited = [0] * N
+perm(0)
+```
 
