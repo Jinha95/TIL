@@ -70,6 +70,10 @@
 
 
 
+<img width="1517" alt="Screen Shot 2020-08-19 at 5 12 04 PM" src="https://blog.kakaocdn.net/dn/qZv6d/btqIdsahtpP/ZYW6VHZcSWKSw7lCh6Y7Tk/img.png?original">
+
+
+
 ### 이진트리
 
 * 모든 노드들이 2개의 서브트리를 갖는 특별한 형태의 트리
@@ -174,12 +178,81 @@
 
   
 
+* 이진 트리의 순회
+  * 전위 순회 : A B D H I E J C F K G L M
+  * 중위 순회 : H D I B J E A F K C L G M
+  * 후위 순회 : H I D J E B K F L M G C A
+
+<img width="1517" alt="Screen Shot 2020-08-19 at 5 12 04 PM" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkxeQA%2FbtqIrvQtNFg%2FOg2s9YvHJh9j82Bj6qv7R0%2Fimg.png">
 
 
-dw
 
-<img width="1517" alt="Screen Shot 2020-08-19 at 5 12 04 PM" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FctdIkb%2FbtqIhZkU5lj%2FIWwGXkeOoSLCVbCJQhYZA1%2Fimg.png">
+### 수식트리
+
+* 수식을 표현하는 이진트리
+* 수식 이진 트리(Expression Binary Tree) 라고 부르기도 함
+* 연산자는 루트 노드이거나 가지 노드
+* 피연산자는 모두 잎 노드
 
 
 
-swd
+* 수식 트리의 순회
+  * 중위 순회 : A / B \* C \* D + E (식의 중위 표기법)
+  * 후위 순회 : A  B \* C \* D \* E + (식의 후위 표기법)
+  * 전위 순회 : + * * / A B C D E (식의 중위 표기법)
+
+
+
+### 이진 탐색 트리
+
+* 탐색작업을 효율적으로 하기 위한 자료구조
+* 모든 원소는 서로 다른 유일한 키를 갖는다.
+* key(왼쪽 서브트리)<key(루트 노드)<key(오른쪽 서브트리)
+* 왼쪽 서브트리와 오른쪽 서브트리도 이진 탐색 트리다.
+* 중위 순회하면 오름차순으로 정렬된 값을 얻을 수 있다.
+
+> 탐색연산
+>
+> * 루트에서 시작한다
+> * 탐색할 키 값 x를 루트 노드의 키 값과 비교한다.
+>   * (키 값 x = 루트 노드의 키 값)인 경우 : 원하는 원소를 찾았으므로 탐색 연산 성공
+>   * (키 값 x < 루트 노드의 키 값)인 경우 : 루트노드의 왼쪽 서브트리에 대해서 탐색연산 수행
+>   * (키 값 x > 루트 노드의 키 값)인 경우 : 루트노드의 오른쪽 서브트리에 대해서 탐색연산 수행
+> * 서브트리에 대해서 순환적으로 탐색 연산을 반복한다.
+
+
+
+> 삽입연산
+>
+> * 먼저 탐색 연산을 수행
+>   * 삽입할 원소와 같은 원소가 트리에 있으면 삽입할 수 없으므로 , 같은 원소가 트리에 있는지 탐색하여 확인한다.
+>   * 탐색에서 탐색 실패가 결정되는 위치가 삽입 위치가 된다.
+> * 탐색 실패한 위치에 원소를 삽입한다.
+
+
+
+> 성능
+>
+> * 탐색(searching), 삽입(insertion), 삭제(deletion) 시간은 트리의 높이 만큼 시간이 걸린다.
+>   * O(h), h : BST의 깊이(height)
+> * 평균의 경우
+>   * 이진 트리가 균형적으로 생성되어 있는경우
+>   * O(log n)
+> * 최악의 경우
+>   * 한쪽으로 치우친 경사 이진트리의 경우
+>   * O(n)
+>   * 순차탐색과 시간복잡도가 같다.
+
+
+
+#### 참고 : 힙(heap)
+
+* 완전 이진 트리에 있는 노드 중에서 키값이 가장 큰 노드나 키값이 가장 작은 노드를 찾기 위해서 만든 자료구조
+* 최대 힙(max heap)
+  * 키값이 가장 큰 노드를 찾기 위한 `완전 이진 트리`
+  * {부모노드의 키값 > 자식노드의 키값}
+  * 루트 노드 : 키값이 가장 큰 노드
+* 최소 힙(min heap)
+  * 키값이 가장 작은 노드를 찾기 위한 `완전 이진 트리`
+  * {부모노드의 키값 < 자식노드의 키값}
+  * 루트 노드 : 키값이 가장 작은 노드
