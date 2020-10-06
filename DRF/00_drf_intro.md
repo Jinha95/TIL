@@ -27,7 +27,7 @@
 
 2. REST 중심 규칙
 
-   - URI는 정보의 자원을 표현해야 한다.
+   - URI는 정보의 자원을 표현한다.
 
    - 자원에 대한 (어떠한) 행위는 HTTP Method로 표현한다.
 
@@ -49,7 +49,7 @@
 
 **Django REST Framework(DRF)**
 
-*"DRF로 편하게 RESTful한 JSON 응답 서버를 만들자!"*
+*"DRF가 제공하는 기본 도구를 활용해 RESTful한 JSON 응답 서버를 만들자!"*
 
 
 
@@ -120,7 +120,7 @@ $ python manage.py seed articles --number=20
 
 2. [JSON을 직접 구성](https://docs.djangoproject.com/en/3.1/ref/request-response/#jsonresponse-objects)해서 응답
 
-   필드를 하나하나 만들어 줘야 한다.
+   필드를 직접 구성해야 한다.
 
    딕셔너리가 아닌 경우 `safe=False` 파라미터를 추가해야 한다.
 
@@ -147,6 +147,10 @@ $ python manage.py seed articles --number=20
    
 
 3. [Django core serializers](https://docs.djangoproject.com/en/3.1/topics/serialization/) 활용해서 응답
+
+   필드를 직접 구성하지 않고 `articles` QuerySet 정보를 활용해서 직렬화한다.
+
+   `HttpResponse`는 `content_type`  키워드 인자를 활용해 다양한 타입으로 응답할 수 있는데, 아무런 값도 넘기지 않으면 기본값으로 `text/html`을 활용한다.
 
    ```python
    # articles/views.py
@@ -202,6 +206,7 @@ $ python manage.py seed articles --number=20
    def article_list_json_3(request):
        # 직렬화 할 데이터 DB에서 가져오기
        articles = Article.objects.all()
+       # ArticleSerializer를 통해 직렬화하기 (QuerySet이라서 many=True 옵션 필수)
        serializer = ArticleSerializer(articles, many=True)
        return Response(serializer.data)
    ```
