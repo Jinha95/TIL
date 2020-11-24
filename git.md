@@ -21,6 +21,8 @@ $ git config --global user.email {user email}
 
 
 
+
+
 ## 로컬 저장소(repository) 활용하기
 
 ### 1. 저장소 초기화
