@@ -95,6 +95,8 @@ $ git commit -m "마크다운 정리"
 
 커밋 이후에는 아래의 명령어를 통해 지금까지 작성된 커밋 이력을 확인한다.
 
+
+
 ```bash
 $ git log
 commit 6c840158f44a51f40c02f08d226289d899a6c904 (HEAD -> master)
