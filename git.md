@@ -37,8 +37,6 @@ Initialized empty Git repository in C:/Users/kimsj/temp/.git/
 
 
 
-
-
 ### 2. `add`
 
 `working directory`, 즉 작업 공간에서 변경된 사항을 이력으로 저장하기 위해서는 반드시 `staging area`를 거쳐야 한다.
