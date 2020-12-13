@@ -24,6 +24,8 @@
 
 
 
+
+
 ### 1.2. CORS(Cross-Origin Resource Sharing) Policy
 
 > "교차 출처 자원 공유 정책은 HTTP Header를 활용해서 한 출처에서 실행 중인 웹 어플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제를 의미한다."
@@ -57,6 +59,7 @@
    ```
 
 3. Client(Browser)
+   
    - Server로부터 응답을 받은 브라우저는 Response Header의 `Access-Control-Allow-Origin`에 Origin에 대한 정보가 있는지 여부를 확인한다.
 
 
@@ -84,8 +87,9 @@ https://fetch.spec.whatwg.org/#http-cors-protocol
 
 
 1. Server & Client 환경 세팅
-   - 기본적인 가상 환경 세팅 및 마이그레이션 작업 확인
-
+   
+- 기본적인 가상 환경 세팅 및 마이그레이션 작업 확인
+   
 2. Server
 
    아래의 요소가 어떠한 형태로 구성 되어있는지 확인하고 Postman을 활용해 테스트
